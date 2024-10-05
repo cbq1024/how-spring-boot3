@@ -9,7 +9,7 @@ plugins {
     id("com.diffplug.spotless") version "6.25.0"
 }
 
-group = "com.example"
+group = "com.mcddhub"
 version = "0.0.1"
 
 java {

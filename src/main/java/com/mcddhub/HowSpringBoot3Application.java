@@ -1,9 +1,9 @@
-package com.example;
+package com.mcddhub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.mcddhub"})
 public class HowSpringBoot3Application {
 
     public static void main(String[] args) {
