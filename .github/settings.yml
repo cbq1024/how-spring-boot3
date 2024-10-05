@@ -13,7 +13,7 @@ repository:
   homepage: https://mcddhub.github.io/caobaoqi1029/how-spring-boot3
 
   # A comma-separated list of topics to set on the repository
-  topics: study, spring-boot3
+  topics: spring-boot
 
   # Either `true` to make the repository private, or `false` to make it public.
   private: false
