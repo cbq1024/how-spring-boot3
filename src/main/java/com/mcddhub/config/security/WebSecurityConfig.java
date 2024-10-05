@@ -13,6 +13,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.OrRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
@@ -24,6 +25,8 @@ import org.springframework.web.cors.CorsConfigurationSource;
 @RequiredArgsConstructor
 public class WebSecurityConfig {
 
+    private final UserDetailsServiceImpl userDetailsService;
+    private final CookieJwt cookieJwt;
     private final CorsConfigurationSource corsConfigurationSource;
 
     @Bean
@@ -40,6 +43,8 @@ public class WebSecurityConfig {
     @Bean
     public RequestMatcher publicEndPointMatcher() {
         return new OrRequestMatcher(
+            new AntPathRequestMatcher("/auth/sign-in", "POST"),
+            new AntPathRequestMatcher("/auth/sign-up", "POST"),
             new AntPathRequestMatcher("/v3/api-docs/**", "GET"),
             new AntPathRequestMatcher("/swagger-ui/**", "GET"),
             new AntPathRequestMatcher("/swagger-ui.html", "GET"),
@@ -62,7 +67,8 @@ public class WebSecurityConfig {
             .exceptionHandling(exceptionHandler -> exceptionHandler
                 .accessDeniedHandler(restfulAuthenticationEntryPointHandler)
                 .authenticationEntryPoint(restfulAuthenticationEntryPointHandler))
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .addFilterAt(new CookieJwtAuthenticationFilter(cookieJwt, userDetailsService), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }
