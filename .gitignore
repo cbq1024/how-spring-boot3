@@ -36,3 +36,20 @@ out/
 ### VS Code ###
 .vscode/
 !/.env
+
+.DS_Store
+.next/
+.tsup/
+node_modules/
+*.log
+dist/
+.turbo/
+
+.vercel/
+.idea/
+.eslintcache
+.env
+
+tsup.config.bundled*
+tsconfig.tsbuildinfo
+pagefind/

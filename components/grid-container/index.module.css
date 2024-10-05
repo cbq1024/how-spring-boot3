@@ -1,0 +1,11 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr; /* 小屏幕默认一列 */
+    gap: 16px; /* 自定义间距 */
+}
+
+@media (min-width: 640px) {
+    .gridContainer {
+        grid-template-columns: repeat(2, 1fr); /* 中屏和大屏两列 */
+    }
+}

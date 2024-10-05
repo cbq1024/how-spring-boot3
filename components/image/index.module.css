@@ -1,0 +1,11 @@
+.image {
+    width: 100%;
+    border-radius: 0.5rem; /* 圆角 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 阴影 */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* 过渡效果 */
+}
+
+.image:hover {
+    opacity: 0.75; /* 悬停时透明度 */
+    transform: scale(1.05); /* 悬停时放大 */
+}
