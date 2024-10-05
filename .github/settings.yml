@@ -10,7 +10,7 @@ repository:
   description: how-spring-boot3
 
   # A URL with more information about the repository
-  homepage: https://mcddhub.github.io/caobaoqi1029/how-spring-boot3
+  homepage: https://github.com/cbq1024/how-spring-boot3
 
   # A comma-separated list of topics to set on the repository
   topics: spring-boot
